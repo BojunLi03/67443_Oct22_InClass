@@ -55,4 +55,60 @@ struct DarthTyrannous {
  Place your refactored structs below:
  */
 
+protocol ForceUser {
+    func lightSaberSkill()
+    func telekinesis()
+    func prescience()
+}
 
+protocol Sith {
+    func forceChoke()
+    func forceLightning()
+}
+
+protocol Jedi {
+    func mindControl()
+    func introspection()
+}
+
+extension ForceUser {
+    func lightSaberSkill() -> Int { return 8 }
+    func telekinesis() -> Int { return 5 }
+    func prescience() -> Int { return 5 }
+}
+
+extension Sith {
+    func forceChoke() -> Bool { return true }
+    func forceLightning() -> Bool { return true }
+}
+
+struct MasterYoda: ForceUser, Jedi {
+    func telekinesis() -> Int { return 9 }
+    func introspection() -> String { return "Search your feelings." }
+    func mindControl() -> String { return "Do or do not." }
+}
+
+struct MasterObiWan: ForceUser, Jedi {
+    func introspection() -> String { return "Search your feelings." }
+    func mindControl() -> String { return "These are not the droids you're looking for." }
+}
+
+struct MasterQuiGon: ForceUser, Jedi {
+    func mindControl() -> String { return "Republic credits will do." }
+    func introspection() -> String { return "Feel, don’t think. Trust your instincts." }
+}
+
+struct DarthVader: ForceUser, Sith {
+    func lightSaberSkill() -> Int { return 9 }
+    func telekinesis() -> Int { return 8 }
+    func forceLightning() -> Bool { return false }
+}
+
+struct DarthSidious: ForceUser, Sith {
+    func telekinesis() -> Int { return 7 }
+    func prescience() -> Int { return 6 }
+}
+
+struct DarthTyrannous: ForceUser, Sith {
+    func forceChoke() -> Bool { return false }
+}
